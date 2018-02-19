@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main %}
+    {% for download_link in download_links %}
+        <a href="{{ download_link }}">
+            download_link 
+        </a>
+        <br>
+    {% endfor %}
+{% endblock main %}

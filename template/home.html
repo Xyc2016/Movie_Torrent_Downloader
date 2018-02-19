@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<form action="{% url 'home' %}" method="post" class="input-group"  >
+    {% csrf_token %}
+    <input class=" form-control" type="text" name="movie_title" placeholder="输入电影名称">
+    {% comment %} <button class="btn btn-default" type="submit">search</button>     {% endcomment %}
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+            search
+        </button>
+    </span>
+</form>
+
+{% endblock main %}
