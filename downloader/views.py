@@ -4,16 +4,19 @@ from django.http import HttpResponse
 
 def home(request):
     if request.method == 'GET':
-        return render(request,'home.html');
+        return render(request,'home.html')
     elif request.POST.get('movie_title',None):
         return redirect('get_search_result', request.POST.get('movie_title') )
         
 
 def get_search_result(request,movie_title):
-    from urllib.parse import quote
+    
     url = 'http://www.btbtdy.com/search/'+movie_title+'.html'
-    from .get_links import get_links
-    download_urls = get_links.get_download_urls(url)
+    from . import get_links
+    titles_download_links = get_links.get_download_urls(url)
+    print(
+        titles_download_links
+    )
     return render(request,'download_links.html',context={
-        'download_links':download_urls
+        'download_links': titles_download_links
     })

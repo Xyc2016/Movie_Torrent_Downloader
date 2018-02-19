@@ -19,21 +19,24 @@ def get_search_results(url):
 def _get_download_links(url):
     url0 = url.replace('btdy/dy','vidlist/')
     soup = get_soup(url0)
-    return [ node['href'] for node in soup.find_all('a','d1') ]
+    # return [ node['href'] for node in soup.find_all('a','d1') ]
+    lis = soup.find_all('li')
+    l = []
+    for li in lis:
+        v = (
+            list(li.children)[0]['title'],list(list(li.children)[1].children)[0]['href']
+        )
+        l.append(v)
+    return l
 
 
 def get_download_urls(url):
     l0 = get_search_results(url)
-    
-    print(
-        l0
-    )
     l1 = []
     for url in l0:
         l1.extend(
             _get_download_links(url)
         )
-    print(l1)
     return l1
 
 
