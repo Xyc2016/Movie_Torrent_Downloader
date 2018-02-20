@@ -2,24 +2,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
-                 
+
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" media="screen" href=" {% static 'bootstrap.css' %} " />
-    
-    
-    
+    <link rel="stylesheet" type="text/css" media="screen" href=" {% static 'bootstrap.css' %} "/>
+    <link rel="stylesheet" href="../static/bootstrap.css">
+
 </head>
 <body>
-    <div class="container" >
-        {% block main %}
-        
-        {% endblock main %}
 
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1 class="text-center">
+                <a href="{% url 'home' %}" class="text-center">
+                    Movie Download Helper
+                </a>
+            </h1>
+            {% block main %}
+
+            {% endblock main %}
+
+        </div>
+        <div class="col-md-2"></div>
     </div>
+
+
+</div>
 </body>
 </html> 

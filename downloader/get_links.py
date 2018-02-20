@@ -13,7 +13,10 @@ def get_search_results(url):
     l0 = soup.find_all(
         'a', class_='so_pic'
     )
-    return ['http://www.btbtdy.com' + node['href'] for node in l0]
+
+    return ['http://www.btbtdy.com' + node['href'] for node in l0
+                if node['href'].split('/')[-1].split('.')[0][2:].__len__()==4
+            ]
 
 
 def _get_download_links(url):
@@ -31,6 +34,7 @@ def _get_download_links(url):
 
 
 def get_download_urls(url):
+
     l0 = get_search_results(url)
     l1 = []
     for url in l0:

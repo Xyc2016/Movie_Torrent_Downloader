@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 
-{% block main %}
-    {% for title,link in download_links %}
-        <a href="{{ link }}">
-           {{ title }}
+<link rel="stylesheet" href="../static/bootstrap.css">
 
-        </a>
-        <br>
-    {% endfor %}
+{% block main %}
+
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        Download links
+                    </th>
+                </tr>
+                </thead>
+                {% for title,link in download_links %}
+                    <tr>
+                        <td>
+                            <a href="{{ link }}">{{ title }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
 {% endblock main %}
